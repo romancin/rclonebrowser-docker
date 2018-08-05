@@ -1,0 +1,13 @@
+rclonebrowser_service:
+    image: romancin/rclonebrowser:latest
+    container_name: rclonebrowser
+    ports:
+      - "5804:5800"
+    environment:
+      - USER_ID=0
+      - GROUP_ID=0
+      - TZ=Europe/Madrid
+      - VNC_PASSWORD=password
+    volumes:
+      - "/share/Container/rclonebrowser:/config:rw"
+      - "/share/Container/rclonebrowser/shared:/shared:rw"
