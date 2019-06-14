@@ -8,7 +8,7 @@ A repository for creating a docker container including RClone Browser with GUI i
 
 You can invite me a beer if you want ;) 
 
-This is a completely funcional Docker image with RClone Browser.
+This is a completely funcional Docker image with RClone Browser (noabody fork).
 
 Based on Alpine Linux, which provides a very small size. 
 
