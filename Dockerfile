@@ -62,6 +62,7 @@ RUN \
 
 # Add files.
 COPY rootfs/ /
+COPY VERSION /
 
 # Set environment variables.
 ENV APP_NAME="RcloneBrowser" \
