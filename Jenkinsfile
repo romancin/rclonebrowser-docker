@@ -17,9 +17,9 @@ pipeline {
                     def gitbranch = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
                     def version = readFile('VERSION')
                     def versions = version.split('\\.')
-                    def major = gitbranch + '-' + versions[0]
-                    def minor = gitbranch + '-' + versions[0] + '.' + versions[1]
-                    def patch = gitbranch + '-' + version.trim()
+                    def major = versions[0]
+                    def minor = versions[0] + '.' + versions[1]
+                    def patch = version.trim()
                     docker.withRegistry('', registryCredential) {
                         def image = docker.build registry + ":" + gitbranch
                         image.push()
