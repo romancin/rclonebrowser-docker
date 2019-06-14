@@ -8,7 +8,7 @@ pipeline {
     stage('Cloning Git Repository') {
       steps {
         git url: 'https://github.com/romancin/rclonebrowser-docker.git',
-            branch: 'develop'
+            branch: 'master'
       }
     }
     stage('Building image and pushing it to the registry') {
@@ -21,7 +21,7 @@ pipeline {
                     def minor = versions[0] + '.' + versions[1]
                     def patch = version.trim()
                     docker.withRegistry('', registryCredential) {
-                        def image = docker.build registry + ":" + gitbranch
+                        def image = docker.build registry + ":latest"
                         image.push()
                         image.push(major)
                         image.push(minor)
