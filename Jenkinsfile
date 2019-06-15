@@ -33,7 +33,7 @@ pipeline {
  }
  post {
         success {
-            telegramSend '[Jenkins] - Pipeline CI-tinymediamanager-docker $BUILD_URL finalizado con estado :: $BUILD_STATUS'    
+            telegramSend '[Jenkins] - Pipeline CI-rclonebrowser-docker $BUILD_URL finalizado con estado :: $BUILD_STATUS'    
         }
     }
 }
