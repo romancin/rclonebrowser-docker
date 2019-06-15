@@ -36,3 +36,4 @@ pipeline {
             telegramSend '[Jenkins] - Pipeline CI-rclonebrowser-docker $BUILD_URL finalizado con estado :: $BUILD_STATUS'    
         }
     }
+}
