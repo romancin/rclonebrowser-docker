@@ -1,6 +1,8 @@
 pipeline {
   environment {
     registry = "romancin/rclonebrowser"
+    repository = "rclonebrowser"
+    withCredentials = 'dockerhub'
     registryCredential = 'dockerhub'
   }
   agent any
@@ -8,7 +10,7 @@ pipeline {
     stage('Cloning Git Repository') {
       steps {
         git url: 'https://github.com/romancin/rclonebrowser-docker.git',
-            branch: 'master'
+            branch: '$BRANCH_NAME'
       }
     }
     stage('Building image and pushing it to the registry') {
@@ -30,10 +32,22 @@ pipeline {
                 }
             }
     }
+    stage('Pushing README to the docker hub (master)') {
+      when{
+        branch 'master'
+        }
+      steps {
+        script {
+          withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+          docker.image('sheogorath/readme-to-dockerhub').run('-v $PWD:/data -e DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME -e DOCKERHUB_PASSWORD=$DOCKERHUB_PASSWORD -e DOCKERHUB_REPO_NAME=$repository')
+          }
+        }
+      }
+    }
  }
  post {
         success {
-            telegramSend '[Jenkins] - Pipeline CI-rclonebrowser-docker $BUILD_URL finalizado con estado :: $BUILD_STATUS'    
+            telegramSend '[Jenkins] - Pipeline CI-rclonebrowser-docker $BUILD_URL finalizado con estado :: $BUILD_STATUS'
         }
     }
 }

@@ -2,7 +2,7 @@
 # RcloneBrowser Dockerfile
 #
 
-FROM jlesage/baseimage-gui:alpine-3.8-glibc
+FROM jlesage/baseimage-gui:alpine-3.9-glibc
 
 # Define environment variables
 ENV RCLONE_VERSION=current
