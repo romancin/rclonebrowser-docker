@@ -30,8 +30,9 @@ is_rclonebrowser_running() {
 }
 
 start_rclonebrowser() {
-        dbus-uuidgen 
         export TERMINAL=xterm
+        export APPIMAGE_EXTRACT_AND_RUN=1
+        dbus-uuidgen
 	/usr/bin/rclone-browser > /config/logs/output.log 2>&1 & 
 }
 

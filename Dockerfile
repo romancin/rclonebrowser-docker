@@ -2,54 +2,29 @@
 # RcloneBrowser Dockerfile
 #
 
-FROM jlesage/baseimage-gui:alpine-3.10-glibc
+FROM jlesage/baseimage-gui:ubuntu-18.04
 
 # Define environment variables
 ENV RCLONE_VERSION=current
 ENV ARCH=amd64
 
+ARG RCLONE_URL=https://github.com/kapitainsky/RcloneBrowser/releases/download/1.8.0/rclone-browser-1.8.0-a0b66c6-linux-x86_64.AppImage
+
 # Define working directory.
 WORKDIR /tmp
 
 # Install Rclone Browser dependencies
+RUN apt update && \
+    apt install -y curl dbus unzip && \
+    curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip && \
+    unzip rclone-current-linux-amd64.zip && \
+    cd rclone-*-linux-amd64 && \
+    cp rclone /usr/bin/ && \
+    chmod 755 /usr/bin/rclone && \
+    rm -rf rclone-*-linux-amd64 && \
+    curl -s -L $RCLONE_URL > /usr/bin/rclone-browser && \
+    chmod u+x /usr/bin/rclone-browser
 
-RUN apk --no-cache add \
-      ca-certificates \
-      fuse \
-      wget \
-      qt5-qtbase \
-      qt5-qtbase-x11 \
-      libstdc++ \
-      libgcc \
-      dbus \
-      xterm \
-    && cd /tmp \
-    && wget -q http://downloads.rclone.org/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
-    && unzip /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
-    && mv /tmp/rclone-*-linux-${ARCH}/rclone /usr/bin \
-    && rm -r /tmp/rclone* && \
-
-    apk add --no-cache --virtual=build-dependencies \
-        build-base \
-        cmake \
-        make \
-        gcc \
-        git \
-        qt5-qtbase qt5-qtmultimedia-dev qt5-qttools-dev && \
-
-# Compile RcloneBrowser
-    git clone https://github.com/kapitainsky/RcloneBrowser.git /tmp && \
-    mkdir /tmp/build && \
-    cd /tmp/build && \
-    cmake .. && \
-    cmake --build . && \
-    ls -l /tmp/build && \
-    cp /tmp/build/build/rclone-browser /usr/bin  && \
-
-    # cleanup
-     apk del --purge build-dependencies && \
-    rm -rf /tmp/*
- 
 # Maximize only the main/initial window.
 RUN \
     sed-patch 's/<application type="normal">/<application type="normal" title="Rclone Browser">/' \
@@ -65,7 +40,7 @@ COPY rootfs/ /
 COPY VERSION /
 
 # Set environment variables.
-ENV APP_NAME="RcloneBrowser" \
+ENV APP_NAME="Rclone Browser" \
     S6_KILL_GRACETIME=8000
 
 # Define mountable directories.
