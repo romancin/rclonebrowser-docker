@@ -2,7 +2,7 @@
 # RcloneBrowser Dockerfile
 #
 
-FROM jlesage/baseimage-gui:alpine-3.10-glibc
+FROM jlesage/baseimage-gui:alpine-3.11-glibc
 
 # Define environment variables
 ENV RCLONE_VERSION=current
@@ -19,6 +19,7 @@ RUN apk --no-cache add \
       wget \
       qt5-qtbase \
       qt5-qtbase-x11 \
+      qt5-qtmultimedia \
       libstdc++ \
       libgcc \
       dbus \
@@ -38,7 +39,7 @@ RUN apk --no-cache add \
         qt5-qtbase qt5-qtmultimedia-dev qt5-qttools-dev && \
 
 # Compile RcloneBrowser
-    git clone https://github.com/kapitainsky/RcloneBrowser.git /tmp && \
+    git clone -b kptsky_docker_debug https://github.com/kapitainsky/RcloneBrowser.git /tmp && \
     mkdir /tmp/build && \
     cd /tmp/build && \
     cmake .. && \
