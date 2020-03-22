@@ -4,8 +4,10 @@
 
 FROM jlesage/baseimage-gui:alpine-3.10-glibc
 
-# Define environment variables
+# Define build arguments
 ENV RCLONE_VERSION=current
+
+# Define environment variables
 ENV ARCH=amd64
 
 # Define working directory.
