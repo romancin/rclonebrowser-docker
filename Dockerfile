@@ -5,7 +5,7 @@
 FROM jlesage/baseimage-gui:alpine-3.10-glibc
 
 # Define build arguments
-ENV RCLONE_VERSION=current
+ARG RCLONE_VERSION=current
 
 # Define environment variables
 ENV ARCH=amd64
