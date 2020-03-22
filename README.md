@@ -1,6 +1,8 @@
 # rclonebrowser-docker
 
-A repository for creating a docker container including RClone Browser with GUI interface.
+A repository for creating a docker container including RClone Browser with GUI interface, based on [kapitainsky fork](https://github.com/kapitainsky/RcloneBrowser)
+
+Thank you for continue developing this awesome software :)
 
 [![](https://images.microbadger.com/badges/version/romancin/rclonebrowser.svg)](https://microbadger.com/images/romancin/rclonebrowser "Docker image version")
 [![](https://images.microbadger.com/badges/image/romancin/rclonebrowser.svg)](https://microbadger.com/images/romancin/rclonebrowser "Docker image size")
@@ -281,5 +283,5 @@ Having troubles with the container or have questions?  Please
 
 
 ## Changelog
-
+v3.0.0 (22/03/2019): Updated to RcloneBrowser 1.8.0 version
 v1.0.1 (22/09/2019): Updated to latest image from jlesage and added Jenkinsfile for CI
