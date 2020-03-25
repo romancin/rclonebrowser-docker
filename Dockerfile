@@ -72,7 +72,7 @@ ENV APP_NAME="RcloneBrowser" \
 
 # Define mountable directories.
 VOLUME ["/config"]
-VOLUME ["/shared"]
+VOLUME ["/media"]
 
 # Metadata.
 LABEL \

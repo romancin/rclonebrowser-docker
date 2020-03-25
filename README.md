@@ -10,7 +10,7 @@ Thank you for continue developing this awesome software :)
 
 You can invite me a beer if you want ;) 
 
-This is a completely funcional Docker image with RClone Browser (noabody fork).
+This is a completely funcional Docker image with RClone Browser (kapytainsky fork).
 
 Based on Alpine Linux, which provides a very small size. 
 
@@ -22,7 +22,7 @@ Instructions:
 - Map any local port to 5800 for web access
 - Map any local port to 5900 for VNC access
 - Map a local volume to /config (Stores configuration data)
-- Map a local volume to /shared (Access media files)
+- Map a local volume to /media (Access media files)
 
 Sample run command:
 
