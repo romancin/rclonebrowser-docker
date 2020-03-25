@@ -22,7 +22,7 @@ Instructions:
 - Map any local port to 5800 for web access
 - Map any local port to 5900 for VNC access
 - Map a local volume to /config (Stores configuration data)
-- Map a local volume to /shared (Access media files)
+- Map a local volume to /media (Access media files)
 
 Sample run command:
 
