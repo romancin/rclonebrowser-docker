@@ -10,7 +10,7 @@ Thank you for continue developing this awesome software :)
 
 You can invite me a beer if you want ;) 
 
-This is a completely funcional Docker image with RClone Browser (noabody fork).
+This is a completely funcional Docker image with RClone Browser (kapytainsky fork).
 
 Based on Alpine Linux, which provides a very small size. 
 
