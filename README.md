@@ -283,5 +283,6 @@ Having troubles with the container or have questions?  Please
 
 
 ## Changelog
+v3.0.2 (09/09/2020): Updated to Alpine 3.12 and Rclone current version
 v3.0.0 (22/03/2019): Updated to RcloneBrowser 1.8.0 version
 v1.0.1 (22/09/2019): Updated to latest image from jlesage and added Jenkinsfile for CI
