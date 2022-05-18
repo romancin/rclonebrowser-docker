@@ -51,7 +51,7 @@ RUN apk --no-cache add \
     # cleanup
      apk del --purge build-dependencies && \
     rm -rf /tmp/*
- 
+
 # Maximize only the main/initial window.
 RUN \
     sed-patch 's/<application type="normal">/<application type="normal" title="Rclone Browser">/' \
