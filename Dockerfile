@@ -2,7 +2,7 @@
 # RcloneBrowser Dockerfile
 #
 
-FROM jlesage/baseimage-gui:alpine-3.12-glibc
+FROM jlesage/baseimage-gui:alpine-3.15-glibc
 
 # Define build arguments
 ARG RCLONE_VERSION=current
@@ -51,7 +51,7 @@ RUN apk --no-cache add \
     # cleanup
      apk del --purge build-dependencies && \
     rm -rf /tmp/*
- 
+
 # Maximize only the main/initial window.
 RUN \
     sed-patch 's/<application type="normal">/<application type="normal" title="Rclone Browser">/' \

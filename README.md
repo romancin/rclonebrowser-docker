@@ -8,17 +8,17 @@ Thank you for continue developing this awesome software :)
 [![](https://images.microbadger.com/badges/image/romancin/rclonebrowser.svg)](https://microbadger.com/images/romancin/rclonebrowser "Docker image size")
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X2CT2SWQCP74U)
 
-You can invite me a beer if you want ;) 
+You can invite me a beer if you want ;)
 
 This is a completely funcional Docker image with RClone Browser (kapytainsky fork).
 
-Based on Alpine Linux, which provides a very small size. 
+Based on Alpine Linux, which provides a very small size.
 
 Tested and working on Synology and QNAP, but should work on any x86_64 devices.
 
 Thanks to @jlesage for a great base image for GUI apps.
 
-Instructions: 
+Instructions:
 - Map any local port to 5800 for web access
 - Map any local port to 5900 for VNC access
 - Map a local volume to /config (Stores configuration data)
@@ -283,6 +283,7 @@ Having troubles with the container or have questions?  Please
 
 
 ## Changelog
+v4.0.0 (18/05/2020): Updated to Alpine 3.15 and Rclone current version
 v3.0.2 (09/09/2020): Updated to Alpine 3.12 and Rclone current version
 v3.0.0 (22/03/2019): Updated to RcloneBrowser 1.8.0 version
 v1.0.1 (22/09/2019): Updated to latest image from jlesage and added Jenkinsfile for CI
