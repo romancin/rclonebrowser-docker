@@ -1,4 +1,6 @@
-rclonebrowser_service:
+version: '3'
+services:
+  rclonebrowser_service:
     image: romancin/rclonebrowser:latest
     container_name: rclonebrowser
     ports:
@@ -11,3 +13,4 @@ rclonebrowser_service:
     volumes:
       - "/share/Container/rclonebrowser:/config:rw"
       - "/share/Container/rclonebrowser/shared:/shared:rw"
+    network_mode: "bridge"
