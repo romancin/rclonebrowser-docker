@@ -283,6 +283,7 @@ Having troubles with the container or have questions?  Please
 
 
 ## Changelog
+v4.0.1 (28/09/2022): Update Rclone and Rclonebrowser to current version
 v4.0.0 (18/05/2022): Update Rclone and Rclonebrowser to current version
 v3.0.2 (09/09/2020): Updated to Alpine 3.12 and Rclone current version
 v3.0.0 (22/03/2019): Updated to RcloneBrowser 1.8.0 version
